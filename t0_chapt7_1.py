@@ -212,6 +212,7 @@ work_quotes.clear()
 print(work_quotes)
 
 
+
 print('\n', '#027', '-' * 50)
 # 27a-----------------------------------------------
 marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo']
