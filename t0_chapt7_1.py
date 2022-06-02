@@ -1,3 +1,7 @@
+import copy
+
+print('\n', '#001', '-' * 50)
+# 1-------------------------------------------------
 one_marx = "Groucho", "Chico", "Harpo"
 print(one_marx)
 
@@ -202,13 +206,171 @@ print(marxes)
 
 print('\n', '#026', '-' * 50)
 # 26------------------------------------------------
-
+work_quotes = ['Working hard?', 'Quick question!', 'Number one priorities!']
+print(work_quotes)
+work_quotes.clear()
+print(work_quotes)
 
 
 print('\n', '#027', '-' * 50)
-# 27------------------------------------------------
+# 27a-----------------------------------------------
+marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo']
+print(marxes)
+print(marxes.index('Chico'))
 
+# 27b--
+simpsons = ['Lisa', 'Bart', 'Marge', 'Homer', 'Bart']
+print(simpsons)
+print(simpsons.index('Bart'))   # first result only
 
 
 print('\n', '#028', '-' * 50)
-# 28------------------------------------------------
+# 28a-----------------------------------------------
+marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo']
+print('Groucho' in marxes)
+print('Bob' in marxes)
+
+# 28b--
+words = ['a', 'deer', 'a' 'female', 'deer']
+print(words)
+print('deer' in words)
+
+
+print('\n', '#029', '-' * 50)
+# 29a-----------------------------------------------
+marxes = ['Groucho', 'Chico', 'Harpo']
+print(marxes)
+print(marxes.count('Harpo'))
+print(marxes.count('Bob'))
+
+# 29b--
+snl_skit = ['cheeseburger', 'cheeseburger', 'cheeseburger']
+print(snl_skit)
+print(snl_skit.count('cheeseburger'))
+
+
+print('\n', '#030', '-' * 50)
+# 30a-----------------------------------------------
+print(marxes)
+print(type(marxes))
+print(', '.join(marxes))
+print(type(', '.join(marxes)))
+
+print('\n')
+# 30b--
+friends = ['Harry', 'Hermione', 'Ron']
+print(friends)
+print(type(friends))
+print(', '.join(friends))
+print(type(', '.join(friends)))
+
+
+print('\n')
+separator = ' * '
+joined = separator.join(friends)
+print(joined)
+print(type(joined))
+separated = joined.split(separator)
+print(separated)
+print(type(separated))
+print(f'Q: separated == friends?    A: {separated == friends}')
+
+
+print('\n\n', '#031', '-' * 50)
+# 31---------------------------------------sorted()
+marxes = ['Groucho', 'Chico', 'Harpo', 'Zeppo']
+print(marxes)
+marxes.append('Karl')
+marxes.append('Clark')
+print(sorted(marxes))
+print(marxes)
+sorted_marxes = sorted(marxes)
+print(sorted_marxes)
+# -------------------------------sort()
+marxes.sort()
+print(marxes)
+print(len(marxes))
+
+# --------
+numbers = [2, 1, 4.0, 3]
+print(numbers)
+numbers.sort()
+print(numbers)
+
+
+print('\n', '#032', '-' * 50)
+# 32-----------------------------------=------------
+a = [1, 2, 3]
+print(a)
+b = a
+print(b)
+a[0] = 'fooo'
+print(a, b)
+b[0] = 'winwin'
+print(a, b)
+
+
+print('\n\n', '#033', '-' * 50)
+# 33---------------------------------copying-----------
+a = [1, 2, 3]
+b = a.copy()    # is a copy of 'a'
+c = list(a)     # is a copy of 'a'
+d = a[:]        # is a copy of 'a'
+print(a, b, c, d)
+
+a[0] = 'integer lists are boring'
+print(a)
+print(a, b, c, d)
+
+
+print('\n')
+# -------
+a = [1, 2, [8, 9]]
+print(f'list a = {a}')
+print(f'list b = {b}')
+print(f'list c = {c}')
+print(f'list d = {d}')
+b = a.copy()    # is a copy of 'a'
+c = list(a)     # is a copy of 'a'
+d = a[:]        # is a copy of 'a'
+print(a, b, c, d)
+
+
+print('\n')
+print('\n', 'before deepcopy', '-' * 8)
+# --------------deepcopy
+
+a = [1, 2, [8, 9, 10]]
+b = copy.deepcopy(a)    # is a deepcopy of 'a'
+c = list(a)             # is a copy of 'a'
+d = a[:]                # is a copy of 'a'
+print(a)
+print(b)
+print(c)
+print(d)
+print('\n', 'after deepcopy', '-' * 8)
+a[2][2] = 12
+print(a)
+print(b)
+print(c)
+print(d)
+
+
+print('\n\n', '#034', '-' * 50)
+# 34------------------------------------------------
+
+
+print('\n', '#035', '-' * 50)
+# 35------------------------------------------------
+
+
+print('\n', '#036', '-' * 50)
+# 36------------------------------------------------
+
+
+print('\n', '#037', '-' * 50)
+# 37------------------------------------------------
+
+
+print('\n', '#038', '-' * 50)
+# 38------------------------------------------------
