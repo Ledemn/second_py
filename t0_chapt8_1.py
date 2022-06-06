@@ -111,17 +111,101 @@ third = {'d': 'donuts'}
 print({**first, **third, **second})
 
 
-print('\n\n', '#012', '-' * 50)
+print('\n\n', '#012 UPDATE()', '-' * 41)
 # 012-----------------------------------------------
+print(len(pythons))
+others = {'Marx': 'Groucho', 'Howard': 'Moe'}
+print(others)
+
+pythons.update(others)
+print(len(pythons))
+
+print('\n')
+
+first = {'a': 1, 'b': 2}
+second = {'b': 'platypus'}
+first.update(second)
+print(first)
 
 
-print('\n\n', '#012', '-' * 50)
-# 012-----------------------------------------------
+print('\n\n', '#013 DEL', '-' * 46)
+# 013-----------------------------------------------
+print(len(pythons))
+del pythons['Marx']
+del pythons['Howard']
+print(pythons)
+print(len(pythons))
 
 
-print('\n\n', '#012', '-' * 50)
-# 012-----------------------------------------------
+print('\n\n', '#013 .POP() | GET() and DEL', '-' * 27)
+# 013-----------------------------------------------
+print(pythons.pop('Palin'))
+print(len(pythons))
+# re:   print(pythons.pop('Palin'))     # KeyError: 'Palin'
+# -------
+print(pythons.pop('First', 'Hugo'))     # with 2nd argument there are no changes
+print(len(pythons))
 
 
-print('\n\n', '#012', '-' * 50)
-# 012-----------------------------------------------
+print('\n\n', '#014 .CLEAR | = {}', '-' * 36)
+# 014-----------------------------------------------
+print(len(pythons))
+pythons.clear()     # or pythons = {}
+print(len(pythons))
+print(pythons)
+
+
+print('\n\n', '#015 IN', '-' * 47)
+# 015-----------------------------------------------
+pythons = {
+    'Chapman': 'Graham', 'Cleese': 'John',
+    'Jones': 'Terry', 'Palin': 'Michael', 'Idle': 'Eric'}
+print(pythons)
+print('Chapman' in pythons)
+print('Palin' in pythons)
+print('Gilliam' in pythons)
+
+
+print('\n\n', '#016 =', '-' * 48)
+# 016-----------------------------------------------
+# signals = {'green': 'go', 'yellow': 'go faster', 'red': 'smile for the camera'}
+print(len(signals))
+print(signals)
+save_signals = signals
+signals['blue'] = 'confuse everyone'
+print(len(save_signals))
+print(save_signals)
+
+
+print('\n\n', '#017 .COPY()', '-' * 42)
+# 017-----------------------------------------------
+signals = {'green': 'go',
+           'yellow': 'go faster',
+           'red': 'smile for the camera'}
+
+original_signals = signals.copy()       # copying before doing changes
+signals['blue'] = 'confuse everyone'
+
+print(len(signals))
+print(len(original_signals))
+
+
+print('\n\n', '#018 DEEPCOPY()', '-' * 39)
+# 018-----------------------------------------------
+signals = {'green': 'go',
+           'yellow': 'go faster',
+           'red': ['stop', 'smile']}
+
+signals_copy = signals.copy()
+
+print(signals)
+print(signals_copy)
+
+print(signals.keys())       # just 4or practice
+print(signals['green'])     # just 4or practice
+print(signals['red'])       # just 4or practice
+
+signals['red'][1] = 'sweat'
+
+print(signals)
+print(signals_copy)
