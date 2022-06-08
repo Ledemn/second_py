@@ -54,7 +54,31 @@ print('----')
 for item in accusation.items():
     print(item)
 
+print('----')
+for card, contents in accusation.items():
+    print('Card', card, 'has the contents', contents)
 
-# Chart8: Day
-print('\n\n', '#01x ', '-' * 50)
-# 01x-----------------------------------------------
+
+# Chart8: Day4
+print('\n\n', '#021 ', '-' * 50)
+# 021-----------------------------------------------
+word = 'letters'
+print(word)
+
+letter_counts = {letter: word.count(letter) for letter in word}
+print(letter_counts)
+
+print('----')
+letter_counts = {letter: word.count(letter) for letter in set(word)}
+print(letter_counts)
+
+
+print('\n\n', '#022 ', '-' * 50)
+# 022-----------------------------------------------
+vowels = 'aeiou'
+word = 'onomatopoeia'
+print(word)
+
+vowel_counts = {letter: word.count(letter) for letter in set(word)
+                if letter in vowels}
+print(vowel_counts)
