@@ -241,31 +241,94 @@ print('---dict_of_lists:')
 print(dict_of_lists)
 
 
-print('\n\n\n', '#EXERCISES 8.1')
+print('\n', '#' * 60)
+print('#' * 60)
+
+
+print('\n\n\n', '#EXERCISE 8.1')
+# -----------------------------------------------
+e2f = {'dog': 'chien', 'cat': 'chat', 'walrus': 'morse'}
+print(e2f)
+
+
+print('\n\n\n', '#EXERCISE 8.2')
+# -----------------------------------------------
+print(e2f['walrus'])
+
+
+print('\n\n\n', '#EXERCISE 8.3')
+# -----------------------------------------------
+print(e2f.items())          # for practice
+print(list(e2f.items()))    # for practice
+
+f2e = {}
+for english, french in e2f.items():
+    f2e[french] = english
+print(f2e)
+
+
+print('\n\n\n', '#EXERCISE 8.4')
+# -----------------------------------------------
+print(f2e['chien'])
+
+
+print('\n\n\n', '#EXERCISE 8.5')
+# -----------------------------------------------
+print(e2f.keys())
+
+
+print('\n\n\n', '#EXERCISE 8.6')
+# -----------------------------------------------
+life = {
+    'animals': {'cats': ['Henri', 'Grumpy', 'Lucy'], 'octopi': {}, 'emus': {}},
+    'plants': {},
+    'other': {}
+}
+print(life)
+
+
+print('\n\n\n', '#EXERCISE 8.7')
+# -----------------------------------------------
+print(life.keys())
+print(list(life.keys()))
+
+
+print('\n\n\n', '#EXERCISE 8.8')
+# -----------------------------------------------
+print(life['animals'].keys())
+
+
+print('\n\n\n', '#EXERCISE 8.9')
+# -----------------------------------------------
+print(life['animals']['cats'])
+
+
+print('\n\n\n', '#EXERCISE 8.10')
+# -----------------------------------------------
+# squares = {
+#    for kk, vv in range(10) if :
+#        squares[kk] = vv,
+# }
+
+squares = {key: key*key for key in range(10)}
+print(squares)
+
+
+print('\n\n\n', '#EXERCISE 8.11')
+# -----------------------------------------------
+odd = {numb for numb in range(10) if numb % 2 == 1}
+print(odd)
+
+
+print('\n\n\n', '#EXERCISE 8.12')
+# -----------------------------------------------
+for thing in ('Got %s' % nmbr for nmbr in range(10)):
+    print(thing)
+
+
+print('\n\n\n', '#EXERCISE 8.13')
 # -----------------------------------------------
 
 
-
-print('\n\n\n', '#EXERCISES 8.2')
+print('\n\n\n', '#EXERCISES 8.14')
 # -----------------------------------------------
-
-
-
-print('\n\n\n', '#EXERCISES 8.3')
-# -----------------------------------------------
-
-
-
-print('\n\n\n', '#EXERCISES 8.4')
-# -----------------------------------------------
-
-
-
-print('\n\n\n', '#EXERCISES 8.5')
-# -----------------------------------------------
-
-
-
-print('\n\n\n', '#EXERCISES 8.6')
-# -----------------------------------------------
-
