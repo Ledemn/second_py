@@ -116,13 +116,156 @@ print(bruss - wruss)
 print(wruss - bruss)
 
 
-print('\n\n', '#0xx ', '-' * 50)
+print('\n\n', '#031 "^" or .symmetric_difference()', '-' * 20)
+# -----------------------------------------------
+print(a)
+print(b)
+print(a ^ b)
+print(a.symmetric_difference(b))
+print('---')
+
+print(bruss)
+print(wruss)
+print(bruss ^ wruss)
+
+
+print('\n\n', '#032 "<=" or .issubset()', '-' * 31)
+# -----------------------------------------------
+print(a <= b)
+print(a.issubset(b))
+print('---')
+
+print(bruss)
+print(wruss)
+print(bruss <= wruss)   # wruss is subset of bruss
+print(wruss <= bruss)
+print('---')
+
+print(a <= a)
+print(a.issubset(a))
+
+print('--- < ---')
+print(a < b)
+print(a < a)
+print(bruss < wruss)
+
+
+print('\n\n', '#033 ">=" or .issuperset()', '-' * 29)
+# -----------------------------------------------
+print(a)
+print(b)
+print(a >= b)
+print(a.issuperset(b))
+print('---')
+
+print(bruss >= wruss)
+print(wruss >= bruss)
+print('---')
+
+print(a >= a)
+print(a.issuperset(a))
+
+print('--- > ---')
+print(a > b)
+print(a > a)
+print(wruss > bruss)
+
+
+print('\n\n', '#033 ', '-' * 50)
+# -----------------------------------------------
+a_set = {number for number in range(1, 6) if number % 3 == 1}
+print(a_set)
+
+
+print('\n\n', '#034 FROZENSET()', '-' * 39)
+# -----------------------------------------------
+print(frozenset([3, 2, 1]))
+print(frozenset([2, 1, 3]))
+print(frozenset({3, 1, 2}))
+print(frozenset((2, 3, 1)))
+print('---')
+
+fs = frozenset([3, 2, 1])
+print(fs)
+# fs.add(4)     # AttributeError: 'frozenset' object has no attribute 'add'
+
+
+print('\n\n\n\n', '#035 REVISE-1', '-' * 50)
+# -----------------------------------------------
+marx_list = ['Groucho', 'Chico', 'Harpo']
+print(marx_list)
+marx_tuple = 'Groucho', 'Chico', 'Harpo'
+print(marx_tuple)
+marx_dict = {'Groucho': 'banjo', 'Chico': 'piano', 'Harpo': 'harp'}
+print(marx_dict)
+marx_set = {'Groucho', 'Chico', 'Harpo'}
+print(marx_set)
+
+print('---')
+
+print(marx_list[2])
+print(marx_tuple[2])
+print(marx_dict['Harpo'])
+
+print('Harpo' in marx_list)
+print('Harpo' in marx_tuple)
+print('Harpo' in marx_dict)
+print('Harpo' in marx_set)
+
+
+print('\n\n', '#036 REVISE-2', '-' * 42)
+# -----------------------------------------------
+marxes = ['Groucho', 'Chico', 'Harpo']
+pythons = ['Chapman', 'Cleese', 'Gilliam', 'Jones', 'Palin']
+stooges = ['Moe', 'Curly', 'Larry']
+
+print(marxes)
+print(pythons)
+print(stooges)
+print('---tuple_of_lists:')
+
+tuple_of_lists = marxes, pythons, stooges
+print(tuple_of_lists)
+print('\n')
+
+
+list_of_lists = [marxes, pythons, stooges]
+print('---list_of_lists:')
+print(list_of_lists)
+print(print(list_of_lists[0][1]))
+print('\n')
+
+
+dict_of_lists = {'Marxes': marxes, 'Pythons': pythons, 'Stooges': stooges}
+print('---dict_of_lists:')
+print(dict_of_lists)
+
+
+print('\n\n\n', '#EXERCISES 8.1')
 # -----------------------------------------------
 
 
-print('\n\n', '#0xx ', '-' * 50)
+
+print('\n\n\n', '#EXERCISES 8.2')
 # -----------------------------------------------
 
 
-print('\n\n', '#0xx ', '-' * 50)
+
+print('\n\n\n', '#EXERCISES 8.3')
 # -----------------------------------------------
+
+
+
+print('\n\n\n', '#EXERCISES 8.4')
+# -----------------------------------------------
+
+
+
+print('\n\n\n', '#EXERCISES 8.5')
+# -----------------------------------------------
+
+
+
+print('\n\n\n', '#EXERCISES 8.6')
+# -----------------------------------------------
+
