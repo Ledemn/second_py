@@ -156,7 +156,7 @@ print('\n\n', '#017 DEF: default parameter is replaced by defined arg', '-')  # 
 print(menu('dunkelfelder', 'duck', 'doughnut'))
 
 
-print('\n\n', '#018 DEF: buggy', '-' * 40)  # ----------------------------------------
+print('\n\n', '#018 DEF: buggy', '-' * 40)  # --------------------------------------
 
 
 def buggy(arg, result=[]):  # empty list at first call
@@ -169,7 +169,7 @@ print(buggy('b'))
 print(buggy('c'))
 
 
-print('\n\n', '#019 DEF: works', '-' * 40)  # --------------------------------------------
+print('\n\n', '#019 DEF: works', '-' * 40)  # -------------------------------------
 
 
 def works(arg):
@@ -183,7 +183,7 @@ print(works('b'))
 print(works('c'))
 
 
-print('\n\n', '#020 DEF: nonbuggy', '-' * 37)  # --------------------------------------------
+print('\n\n', '#020 DEF: nonbuggy', '-' * 37)  # ----------------------------------
 
 
 def nonbuggy(arg, result=None):
@@ -198,7 +198,7 @@ print(nonbuggy('b'))
 print(nonbuggy('c'))
 
 
-print('\n\n', '#021 DEF: *', '-' * 44)  # --------------------------------------------
+print('\n\n', '#021 DEF: *', '-' * 44)  # ------------------------------------------
 
 
 def print_args(*args):
@@ -209,19 +209,73 @@ print(print_args())
 print(print_args(3, 2, 1, 'wait!', 'uh...'))
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # --------------------------------------------
+print('\n\n', '#022 DEF: required args + *', '-' * 28)  # --------------------------
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # --------------------------------------------
+def print_more(required1, required2, *args):
+    print('Need this one:', required1)
+    print('Need this one too:', required2)
+    print('All the rest:', args)
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # --------------------------------------------
+print(print_more('cap', 'gloves', 'scarf', 'monocle', 'mustache wax'))
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # --------------------------------------------
+print('\n\n', '#023 DEF: **', '-' * 43)  # dict--------------------------------
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # --------------------------------------------
+def print_kwargs(**kwargs):
+    print('Keyword arguments:', kwargs)
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # --------------------------------------------
+print(print_kwargs())
+print(print_kwargs(wine='merlot', entree='mutton', dessert='macaroon'))
+
+
+print('\n\n', '#024 DEF', '-' * 47)  # ----------------------------------------
+
+
+def print_data(data, *, start=0, end=100):
+    for value in (data[start:end]):
+        print(value)
+
+
+data = ['a', 'b', 'c', 'd', 'e', 'f']
+print(print_data(data))
+print(print_data(data, start=4))
+print(print_data(data, end=2))
+
+
+print('\n\n', '#025 DEF: changeable arguments', '-' * 25)  # --------------------
+outside = ['one', 'fine', 'day']
+
+
+def mangle(arg):
+    arg[1] = 'terrible!'
+
+
+print(outside)
+print(mangle(outside))
+print(outside)
+
+
+print('\n\n', '#026 DEF: documentation help()', '-' * 25)  # -------------------
+
+
+def echo(anything):
+    'echo returns its input argument'
+    return anything
+
+
+# def print_if_true(thing, check):
+#    '''
+#    Prints the first argument if a second argument is true.
+#    The operation is:
+#        1. Check whether the *second* argument is true.
+#        2. If it is, print the *first* argument.
+#    '''
+# if check:
+#    print(thing)
+
+
+print('\n\n', '#000 DEF', '-' * 47)  # ----------------------------------------
