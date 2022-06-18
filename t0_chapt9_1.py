@@ -278,4 +278,48 @@ def echo(anything):
 #    print(thing)
 
 
-print('\n\n', '#000 DEF', '-' * 47)  # ----------------------------------------
+print('\n\n', '#027 DEF: 1st class object', '-' * 29)  # ---------------------------
+
+
+# 1:
+def answer():
+    print(42)
+
+
+# 2:
+def run_something(func):
+    func()
+
+
+# 3:
+print(run_something(answer))
+print(type(run_something))
+
+
+# 4:
+def add_args(arg1, arg2):
+    print(arg1 + arg2)
+
+
+print(add_args(1, 2))
+print(type(add_args))
+
+
+# 5:
+def run_something_with_args(func, arg1, arg2):  # add_args(5, 9)
+    func(arg1, arg2)
+
+
+print(run_something_with_args(add_args, 5, 9))
+
+
+# 6:
+def sum_args(*args):    # *args
+    return sum(args)    # SUM()
+
+
+def run_with_positional_args(func, *args):
+    return func(*args)
+
+
+print(run_with_positional_args(sum_args, 1, 2, 3, 4))
