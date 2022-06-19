@@ -93,7 +93,7 @@ for try_again in ranger:    # this time the generator is empty.
     print(try_again)
 
 
-print('\n\n\n', '#031 DEF', '-' * 47)  # --------------------------------------
+print('\n\n\n', '#031 DEF: DECORATORS', '-' * 35)  # --------------------------------
 
 
 # 1:
@@ -120,6 +120,111 @@ print(add_ints(3, 5), '\n')
 # 3:
 cooler_add_ints = document_it(add_ints)     # creating manually
 print(cooler_add_ints(3, 5))
+print('\n')
+
+
+# 3.1:                                      # alternative way
+@document_it
+def add_ints(a, b):
+    return a + b
+
+
+print(add_ints(3, 5))
+print('\n')
+
+
+# -----------------------------------more then ONE @:
+def square_it(func):
+    def new_function(*args, **kwargs):
+        result = func(*args, **kwargs)
+        return result * result
+    return new_function
+
+
+@document_it    # runs 2nd
+@square_it      # runs 1st (closest to function runs first)
+def add_ints(a, b):
+    return a + b
+
+
+print(add_ints(3, 5))
+print('\n')
+
+
+# --------------------------let's try to change @@ order:
+@square_it          # runs 2nd
+@document_it        # runs 1st
+def add_ints(a, b):
+    return a + b
+
+
+print(add_ints(3, 5))
+print('\n')
+
+
+print('\n\n\n', '#032 DEF: NAMES', '-' * 40)  # --------------------------------
+animal = 'fruitbat'     # global variable
+
+
+def print_global():
+    print('inside print_global:', animal)
+
+
+print('at the top level:', animal)
+print(print_global())
+print('\n')
+
+
+# # # --------------------trying to get and then change the global variable 'animal':
+def change_and_print_global():
+    print('inside change_and_print_global:', animal)    # getting at first...
+#    animal = 'wombat'                                  # and then changing!
+    print('after the change:', animal)
+
+
+print(change_and_print_global())
+# >>> UnboundLocalError: local variable 'animal' referenced before assignment
+# # # -------------------------------
+print('\n')
+
+
+def change_local():
+    animal = 'wombat'
+    print('inside change_local:', animal, id(animal))
+
+
+print(change_local())
+print(animal, id(animal))
+
+
+print('\n\n\n', '#032 DEF: locals() globals()', '-' * 27)  # ------------------
+
+
+# ------------------------------ver.local:
+def change_and_print_global():
+#   global animal
+    animal = 'wombat'
+    print('inside change_and_print_global:', animal)
+
+
+print(animal)
+print(change_and_print_global())
+print(animal)
+
+
+print('\n')
+
+
+# ------------------------------ver.global:
+def change_and_print_global():
+    global animal
+    animal = 'wombat'
+    print('inside change_and_print_global:', animal)
+
+
+print(animal)
+print(change_and_print_global())
+print(animal)
 
 
 print('\n\n\n', '#000 DEF', '-' * 47)  # --------------------------------------
