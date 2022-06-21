@@ -227,10 +227,76 @@ print(change_and_print_global())
 print(animal)
 
 
-print('\n\n\n', '#000 DEF', '-' * 47)  # --------------------------------------
+print('\n\n', '---' * 2)
+animal = 'fruitbat'
 
 
-print('\n\n\n', '#000 DEF', '-' * 47)  # --------------------------------------
+def change_local():
+    animal = 'wombat'  # local variable
+    print('locals:', locals())
+
+
+print(animal)
+print(change_local())
+print('globals:', globals())
+
+
+print('\n\n\n', '#033 DEF: _ and __', '-' * 37)  # ----------------------------
+
+
+def amazing():
+    '''This is the amazing function.
+    Want to see it again?'''
+    print('This function is named:', amazing.__name__)
+    print('And its docstring is:', amazing.__doc__)
+
+
+print(amazing())
+
+
+print('\n\n\n', '#034 DEF: RECURSION', '-' * 36)  # ---------------------------
+
+
+def dive():
+    return dive()
+
+
+print(dive)
+# print(dive())     # RecursionError: maximum recursion depth exceeded
+
+
+print('\n')  # ---------------generator()
+
+
+def flatten(lol):
+    for item in lol:
+        if isinstance(item, list):
+            yield from flatten(item)
+        else:
+            yield item
+
+
+lol = [1, 2, [3, 4, 5], [6, [7, 8, 9], []]]
+print(lol)
+
+print(flatten(lol))
+print(list(flatten(lol)))
+
+
+print('\n\n\n', '#035 DEF: exceptions', '-' * 35)  # --------------------------
+short_list = [1, 2, 3]
+position = 5
+# short_list[position]      # IndexError: list index out of range
+
+
+print('\n\n\n', '#036 DEF: except', '-' * 39)  # --------------------------------------
+short_list = [1, 2, 3]
+position = 5
+try:
+    short_list[position]
+except:
+    print('Need a position between 0 and', len(short_list) - 1, ' but got',
+          position)
 
 
 print('\n\n\n', '#000 DEF', '-' * 47)  # --------------------------------------
