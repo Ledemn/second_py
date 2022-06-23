@@ -289,7 +289,7 @@ position = 5
 # short_list[position]      # IndexError: list index out of range
 
 
-print('\n\n\n', '#036 DEF: except', '-' * 39)  # --------------------------------------
+print('\n\n\n', '#036 DEF: except', '-' * 39)  # ----------------------------------
 short_list = [1, 2, 3]
 position = 5
 try:
@@ -299,8 +299,16 @@ except:
           position)
 
 
-print('\n\n\n', '#000 DEF', '-' * 47)  # --------------------------------------
-
-
-print('\n\n\n', '#000 DEF', '-' * 47)  # --------------------------------------
-
+print('\n\n\n', '#037 DEF: except ... as ...', '-' * 28)  # ----IndexError-------
+short_list = [1, 2, 3]
+while True:
+    value = input('Position [q to quit]? ')
+    if value == 'q':
+        break
+    try:
+        position = int(value)
+        print(short_list[position])
+    except IndexError as err:
+        print('Bad index:', position)
+    except Exception as other:
+        print('Something else broke:', other)
