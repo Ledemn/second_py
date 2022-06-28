@@ -138,7 +138,148 @@ print(don.get_name())
 #
 #
 # -----------------------------------------------------------------------------------
-print('\n\n', '#000 ', '-' * 50)  # -----------------------------------------
+print('\n\n', '#006 property', '-' * 42)  # -----------------------------------------
+
+
+# Method 1:
+class Duck:
+    def __init__(self, input_name):
+        self.hidden_name = input_name
+
+    def get_name(self):
+        print('inside the getter')
+        return self.hidden_name
+
+    def set_name(self, input_name):
+        print('inside the setter')
+        self.hidden_name = input_name
+
+    name = property(get_name, set_name)     # added
+
+
+don = Duck('Donald')
+print(don.name)
+
+don.name = 'Donna'
+print(don.name)
+
+
+# Method 2 with decorators: ------------------
+class Duck:
+    def __init__(self, input_name):
+        self.hidden_name = input_name
+
+    @property
+    def name(self):
+        print('inside the getter')
+        return self.hidden_name
+
+    @name.setter
+    def name(self, input_name):
+        print('inside the setter')
+        self.hidden_name = input_name
+
+
+fowl = Duck('Howard')
+print(fowl.name)
+
+fowl.name = 'Donald'
+print(fowl.name)
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n\n', '#007 ', '-' * 50)  # -----------------------------------------
+
+
+class Circle:
+    def __init__(self, radius):
+        self.radius = radius
+
+    @property
+    def diameter(self):
+        return 2 * self.radius
+
+
+c = Circle(5)
+print(c.radius)
+print(c.diameter)
+
+c.radius = 7
+print(c.radius)
+print(c.diameter)
+
+# c.diameter = 20   # AttributeError: can't set attribute 'diameter'
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n', '#008 ', '-' * 50)  # -----------------------------------------
+
+
+class Duck:
+    def __init__(self, input_name):
+        self.__name = input_name
+
+    @property
+    def name(self):
+        print('inside the getter')
+        return self.__name
+
+    @name.setter
+    def name(self, input_name):
+        print('inside the setter')
+        self.__name = input_name
+
+
+fowl = Duck('Howard')
+print(fowl.name)
+
+fowl.name = 'Donald'
+print(fowl.name)
+# print(fowl.__name)        # AttributeError: 'Duck' object has no attribute '__name'.
+print(fowl._Duck__name)     # optional knowledge
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n', '#009 ', '-' * 50)  # -----------------------------------------
+
+
+class Fruit:
+    color = 'red'
+
+
+blueberry = Fruit()
+print(Fruit.color)              # red
+print(blueberry.color)          # red
+# print(Fruit.mro())
+
+blueberry.color = 'blue'
+print(blueberry.color)          # blue
+print(Fruit.color)              # red
+
+
+Fruit.color = 'orange'
+print(Fruit.color)              # orange
+print(blueberry.color)          # blue
+
+# ! But it will affect new ones:
+new_fruit = Fruit()
+print(new_fruit.color)          # orange
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n', '#010 ', '-' * 50)  # -----------------------------------------
 
 
 #
