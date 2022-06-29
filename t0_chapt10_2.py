@@ -279,8 +279,106 @@ print(new_fruit.color)          # orange
 #
 #
 # -----------------------------------------------------------------------------------
-print('\n\n', '#010 ', '-' * 50)  # -----------------------------------------
+print('\n\n', '#010 @classmethod', '-' * 38)  # --------------------------------
 
+
+class A:
+    count = 0
+
+    def __init__(self):
+        A.count += 1
+
+    def exclaim(self):
+        print("I'm an A!")
+
+    @classmethod
+    def kids(cls):
+        print("A has", cls.count, "little objects.")
+
+
+easy_a = A()
+breezy_a = A()
+wheezy_a = A()
+
+print(A.kids())
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n', '#011 @staticmethod', '-' * 37)  # ------------------------------------
+
+
+class CoyoteWeapon:
+    @staticmethod
+    def commercial():
+        print('This CoyoteWeapon has been brought to you by Acme')
+
+
+print(CoyoteWeapon.commercial())
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n', '#012 ', '-' * 50)  # -----------------------------------------
+
+
+class Quote:
+    def __init__(self, person, words):
+        self.person = person
+        self.words = words
+
+    def who(self):
+        return self.person
+
+    def says(self):
+        return self.words + '.'
+
+
+class QuestionQuote(Quote):
+    def says(self):
+        return self.words + '?'
+
+
+class ExclamationQuote(Quote):
+    def says(self):
+        return self.words + '!'
+
+
+# Let's make few objects:
+# 1:
+hunter = Quote('Elmer Fudd', "I'm hunting wabbits")     # __init__(self, person, words):
+#
+print(hunter.who())             # test1
+print(hunter.who(), 'says:')    # test2
+print(hunter.who(), 'says:', hunter.says())
+
+
+# 2:
+hunted1 = QuestionQuote('Bugs Bunny', "What's up, doc")
+#
+print(hunted1.who(), 'says:', hunted1.says())
+
+
+# 3:
+hunted2 = ExclamationQuote('Daffy Duck', "It's rabbit season")
+#
+print(hunted2.who(), 'says:', hunted2.says())
+
+
+print('\n', '#012-p2 ', '-' * 20)  # -----------------------------------------
+
+
+
+
+#
+#
+#
+# -----------------------------------------------------------------------------------
+print('\n\n', '#000 ', '-' * 50)  # -----------------------------------------
 
 #
 #
