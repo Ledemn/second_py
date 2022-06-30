@@ -323,7 +323,7 @@ print(CoyoteWeapon.commercial())
 #
 #
 # -----------------------------------------------------------------------------------
-print('\n\n', '#012 ', '-' * 50)  # -----------------------------------------
+print('\n\n', '#012 Duck typing', '-' * 39)  # --------------------------------------
 
 
 class Quote:
@@ -369,26 +369,97 @@ hunted2 = ExclamationQuote('Daffy Duck', "It's rabbit season")
 print(hunted2.who(), 'says:', hunted2.says())
 
 
-print('\n', '#012-p2 ', '-' * 20)  # -----------------------------------------
+print('\n\n', '#012-p2 ', '-' * 20)  # -----------------------------------------
 
 
+class BabblingBrook:
+    def who(self):
+        return 'Brook'
+
+    def says(self):
+        return 'Babble'
+
+
+brook = BabblingBrook()
+
+
+def who_says(obj):
+    print(obj.who(), 'says', obj.says())
+
+
+print(who_says(hunter))
+print(who_says(hunted1))
+print(who_says(hunted2))
+print(who_says(brook))
 
 
 #
 #
 #
 # -----------------------------------------------------------------------------------
-print('\n\n', '#000 ', '-' * 50)  # -----------------------------------------
+print('\n\n\n', '#013 ', '-' * 50)  # -----------------------------------------
+
+
+class Word:
+    def __init__(self, text):
+        self.text = text
+
+    def equals(self, word2):
+        return self.text.lower() == word2.text.lower()
+
+
+first = Word('ha')
+second = Word('HA')
+third = Word('eh')
+
+print(first.equals(second))
+print(first.equals(third))
+
 
 #
 #
 #
-# -----------------------------------------------------------------------------------
-print('\n\n', '#000 ', '-' * 50)  # -----------------------------------------
+# -------------------------------------------------------------------------------
+print('\n', '#013-p2: ==', '-' * 20)  # -----------------------------------------
+
+
+class Word:
+    def __init__(self, text):
+        self.text = text
+
+    def __eq__(self, word2):
+        return self.text.lower() == word2.text.lower()
+
+
+first = Word('ha')
+second = Word('HA')
+third = Word('eh')
+
+print(first == second)
+print(first == third)
 
 
 #
-#
-#
-# -----------------------------------------------------------------------------------
-print('\n\n', '#000 ', '-' * 50)  # -----------------------------------------
+# -------------------------------------------------------------------------------
+print('\n', '#013-p3', '-' * 20)  # -----------------------------------------
+
+first = Word('ha')
+print(first)
+
+
+class Word:
+    def __init__(self, text):
+        self.text = text
+
+    def __eq__(self, word2):
+        return self.text.lower() == word2.text.lower()
+
+    def __str__(self):
+        return self.text
+
+    def __repr__(self):
+        return 'Word', self.text    # ??? need to be fixed
+
+
+first = Word('ha')
+print(first)            # is used __str__
